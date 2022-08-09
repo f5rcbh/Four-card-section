@@ -1,0 +1,90 @@
+@forward 'global';
+@use './breakpoint' as break;
+@use './fonts/color' as color;
+@use './fonts/text' as text;
+@use './layout' as layout;
+
+
+
+.container{
+    @include layout.flexCenter();
+    flex-direction: column;
+    background-color: color.$lightGray;
+    font-family: text.$family;
+    height: 100vh;
+    .first-row{
+        width: 100%;
+        text-align: center;
+        margin: 2rem;
+        @include layout.gridCenter();
+        h1:nth-child(1){
+            color:color.$grayBlue;
+            font-weight: 200;
+        }
+        h1:nth-child(2){
+            font-weight: 600;
+        }
+        p{
+            width: 35rem;
+            color: color.$grayBlue;
+            font-size: text.$size;
+        }
+    }
+    .second-row{
+        img{
+            margin-top: auto;
+            float: right;
+            padding-top: 2rem;
+        }
+        p{
+            font-size: 14px;
+            color:color.$grayBlue;
+            width: 20rem
+        }
+        h1{
+            font-size: 25px
+        }
+        @include layout.gridCenter;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+        margin: 1.5rem ;
+        .first-col{
+            @include layout.gridCenter;
+            .supervisor{
+                border-top: solid color.$Cyan;
+                box-shadow: 0px 10px 20px -5px color.$grayBlue;
+                padding: 1rem;
+                border-radius: 5px;
+            }
+
+        }
+        .second-col{
+            @include layout.gridCenter;
+            place-items: unset;
+            gap: 1rem;
+            .team-builder{
+                place-items: right;
+                border-top: solid color.$Red;
+                box-shadow: 0px 10px 20px -5px color.$grayBlue;
+                padding: 1rem;
+                border-radius: 5px;
+            }
+            .karma{
+                border-top: solid color.$Orange ;
+                box-shadow: 0px 10px 20px -5px color.$grayBlue;
+                padding: 1rem;
+                border-radius: 5px;
+            }
+        }
+        .third-col{
+            @include layout.gridCenter();
+            place-items: unset;
+            .calcuator{
+                border-top: solid color.$Blue;
+                box-shadow: 0px 10px 20px -5px color.$grayBlue;
+                padding: 1rem;
+                border-radius: 5px;
+            }
+        }
+    }
+}

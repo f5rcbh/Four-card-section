@@ -12,25 +12,42 @@
     background-color: color.$lightGray;
     font-family: text.$family;
     height: 100vh;
+    word-wrap: break-word;
+    word-break: keep-all;
+    @include break.breakpoint(small){
+        height: auto;
+        margin: auto;
+        
+    }
     .first-row{
-        width: 100%;
         text-align: center;
-        margin: 2rem;
+        margin: 1rem;
         @include layout.gridCenter();
         h1:nth-child(1){
             color:color.$grayBlue;
             font-weight: 200;
+            @include break.breakpoint(small){
+                font-size: 20px;
+            }
         }
         h1:nth-child(2){
             font-weight: 600;
+            @include break.breakpoint(small){
+                font-size: 20px;
+            }
         }
         p{
-            width: 35rem;
+            @include break.breakpoint(small){
+                width: 20rem;
+                font-size: 10px;
+            }
+            width: 32rem;
             color: color.$grayBlue;
             font-size: text.$size;
         }
     }
     .second-row{
+        flex-wrap: wrap;
         img{
             margin-top: auto;
             float: right;
@@ -39,18 +56,37 @@
         p{
             font-size: 14px;
             color:color.$grayBlue;
-            width: 20rem
+            width: 20rem;
+            @include break.breakpoint(small){
+                font-size: 12px;
+            }
         }
         h1{
-            font-size: 25px
+            font-size: 25px;
+            @include break.breakpoint(small){
+                font-size: 20px
+            }
         }
         @include layout.gridCenter;
+        
+        @include break.breakpoint(small){
+            @include layout.flexCenter();
+            flex-direction: column;
+        }
+
         grid-template-columns: 1fr 1fr 1fr;
         gap: 1rem;
-        margin: 1.5rem ;
+        margin:1rem 0 ;
         .first-col{
             @include layout.gridCenter;
+            @include break.breakpoint(medium){
+                grid-template-columns: 300px;
+                p{
+                    width: 15rem;
+                }
+            }
             .supervisor{
+                width: 100%;
                 border-top: solid color.$Cyan;
                 box-shadow: 0px 10px 20px -5px color.$grayBlue;
                 padding: 1rem;
@@ -60,16 +96,23 @@
         }
         .second-col{
             @include layout.gridCenter;
+            @include break.breakpoint(medium){
+                grid-template-columns: 300px;
+                p{
+                    width: 15rem;
+                }
+            }
             place-items: unset;
             gap: 1rem;
             .team-builder{
-                place-items: right;
+                width: 100%;
                 border-top: solid color.$Red;
                 box-shadow: 0px 10px 20px -5px color.$grayBlue;
                 padding: 1rem;
                 border-radius: 5px;
             }
             .karma{
+                width: 100%;
                 border-top: solid color.$Orange ;
                 box-shadow: 0px 10px 20px -5px color.$grayBlue;
                 padding: 1rem;
@@ -78,8 +121,16 @@
         }
         .third-col{
             @include layout.gridCenter();
+            @include break.breakpoint(medium){
+                @include layout.gridCenter;
+                grid-template-columns: 300px;
+                p{
+                    width: 15rem;
+                }
+            }
             place-items: unset;
             .calcuator{
+                width: 100%;
                 border-top: solid color.$Blue;
                 box-shadow: 0px 10px 20px -5px color.$grayBlue;
                 padding: 1rem;
